@@ -8,7 +8,9 @@ export const useSignalR = (onReceive: (data: any) => void) => {
 
   useEffect(() => {
     const connection = new signalR.HubConnectionBuilder()
-      .withUrl(HUB_URL)
+      .withUrl(HUB_URL, {
+        withCredentials:false
+      })
       .withAutomaticReconnect()
       .build();
 

@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { FiArrowRightCircle, FiMenu, FiX ,FiUser} from "react-icons/fi";
 
 export default function Navbar() {
   const [Open, setOpen] = useState(false);
-
-  const navItems = [
+    const path = usePathname()
+    console.log(path)
+    const navItems = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
     { name: "Sender", link: "/sender" },
@@ -29,7 +31,7 @@ export default function Navbar() {
       {/* Desktop Nav */}
       <ul className="hidden md:flex items-center gap-6 text-lg font-medium" >
         {navItems.map((item) => (
-          <li key={item.link}>
+          <li  key={item.link} className={`px-2  ${item.link==path &&'bg-gray-800 rounded-md text-white'}`}>
             <Link href={item.link}>{item.name}</Link>
           </li>
         ))}
