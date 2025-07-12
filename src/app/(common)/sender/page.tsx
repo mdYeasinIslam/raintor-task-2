@@ -11,15 +11,16 @@ const Sender = () => {
   const { sendLocation } = useSignalR(() => {});
 
   const handleSend = () => {
-      if (lat && lon && userName) {
-        // const data = {lat,lon,userName}
-      sendLocation( lat, lon, userName );
+    if (lat && lon && userName) {
+      // const data = {lat,lon,userName}
+      sendLocation(lat, lon, userName);
+      
     }
   };
 
   return (
     <div className="p-6 max-w-md mx-auto bg-white rounded shadow">
-      <h1 className="text-xl font-bold mb-4">📤 Location Sender</h1>
+      <h1 className="text-xl font-bold mb-4"> Location Sender</h1>
       <label className="block mb-2">Latitude:</label>
       <input
         type="number"

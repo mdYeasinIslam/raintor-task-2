@@ -25,7 +25,7 @@ export default function Navbar() {
 
       {/* Logo */}
       <header className="uppercase text-2xl font-bold text-center md:text-left z-10">
-        Develop.me
+        Raintor.LTD
       </header>
 
       {/* Desktop Nav */}

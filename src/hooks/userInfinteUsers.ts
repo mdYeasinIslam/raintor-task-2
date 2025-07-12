@@ -7,11 +7,15 @@ export type UserListResponse = {
   total: number;
   users: UserType[]; 
 };
-
+type ActualDataType = {
+    pages: UserListResponse[],
+    pageParam:[]
+}
 const fetchUsers = async ({ pageParam = 0 }): Promise<UserListResponse> => {
   const res = await axios.get<UserListResponse>(
     `https://tech-test.raintor.com/api/users/GetUsersList?take=10&skip=${pageParam}`
   );
+    console.log('actual data',res.data)
   return res.data;
 };
 
@@ -19,7 +23,7 @@ export const useInfiniteUsers = () => {
     return useInfiniteQuery<
       UserListResponse, // raw API response type for each page
       Error, // error type
-      UserListResponse, // returned page type
+      ActualDataType, // returned page type
       string[], // queryKey type
       number // pageParam type
     >({

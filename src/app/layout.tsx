@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Providers from "./Providers";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
@@ -26,8 +27,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <Providers>{children}</Providers>{" "}
-        {/* ✅ Wrap with client-only context */}
+        <Providers>
+          {children}
+          <ToastContainer />
+        </Providers>{" "}
       </body>
     </html>
   );
