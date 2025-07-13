@@ -1,15 +1,20 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useSignalR } from "@/hooks/useSignalR";
 
 const Receiver = () => {
-  const [location, setLocation] = useState<{ lat: number; lon: number; userName: string } | null>(null);
-    // console.log('receive page',location)
-    useSignalR((data) => {
-      
-    setLocation(data);
+  const [location, setLocation] = useState<{
+    lat: number;
+    lon: number;
+    userName: string;
+  } | null>(null);
+  // console.log('receive page',location)
+  useSignalR((data) => {
+    if (data) {
+      setLocation(data);
+    }
   });
 
   return (
@@ -37,4 +42,3 @@ const Receiver = () => {
 };
 
 export default Receiver;
-

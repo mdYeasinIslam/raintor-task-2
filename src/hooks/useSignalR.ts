@@ -3,13 +3,15 @@ import * as signalR from "@microsoft/signalr";
 
 const HUB_URL = "https://tech-test.raintor.com/Hub";
 
-export const useSignalR = (onReceive: (data: any) => void) => {
+export const useSignalR = (
+  onReceive: (data: { lat: number; lon: number; userName: string }) => void
+) => {
   const connectionRef = useRef<signalR.HubConnection | null>(null);
 
   useEffect(() => {
     const connection = new signalR.HubConnectionBuilder()
       .withUrl(HUB_URL, {
-        withCredentials:false
+        withCredentials: false,
       })
       .withAutomaticReconnect()
       .build();

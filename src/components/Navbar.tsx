@@ -11,7 +11,7 @@ export default function Navbar() {
     console.log(path)
     const navItems = [
     { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
+    { name: "Users", link: "/infinite-users" },
     { name: "Sender", link: "/sender" },
     { name: "Receiver", link: "/receiver" },
   ];

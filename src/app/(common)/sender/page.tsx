@@ -12,7 +12,7 @@ const Sender = () => {
 
   const handleSend = () => {
       if (lat && lon && userName) {
-        const data = {lat,lon,userName}
+        // const data = {lat,lon,userName}
       sendLocation( lat, lon, userName );
     }
   };
