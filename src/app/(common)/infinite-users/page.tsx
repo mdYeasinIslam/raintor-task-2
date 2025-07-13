@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import { useInfiniteUsers } from "@/hooks/userInfinteUsers";
-import UserCard from "@/components/UserCard";
+// import UserCard from "@/components/UserCard";
+// import { UserType } from "@/types/UserTypes";
 
 const InfiniteUserFeed = () => {
   const {
@@ -31,13 +32,13 @@ console.log(data)
 
   return (
     <div className="max-w-2xl mx-auto p-4 space-y-4">
-      {data?.pages.map((page, i) => (
+      {/* {data?.pages.map((page: UserListResponse, i:number) => (
         <React.Fragment key={i}>
-          {page.users.map((user: any) => (
+          {page.users.map((user: UserType) => (
             <UserCard key={user.id} user={user} />
           ))}
         </React.Fragment>
-      ))}
+      ))} */}
       <div ref={bottomRef} className="h-10" />
       {isFetchingNextPage && <p className="text-center">Loading more...</p>}
       {!hasNextPage && (

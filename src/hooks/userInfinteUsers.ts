@@ -1,18 +1,9 @@
+import { UserType } from "@/types/UserTypes";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-type UserType = {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  image: string;
-  university: string;
-  company: { title: string };
-};
 
-type UserListResponse = {
+export type UserListResponse = {
   total: number;
   users: UserType[]; 
 };
